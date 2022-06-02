@@ -1,6 +1,8 @@
 import React from 'react'
-import { AppBar, Toolbar, styled, Typography, Box } from '@mui/material'
+import { AppBar, Toolbar, styled, Typography, Box, InputBase, Badge, Avatar,  } from '@mui/material'
 import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
+import MailIcon from '@mui/icons-material/Mail';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 
 const StyledToolbar = styled(Toolbar)({
     display: "flex",
@@ -16,7 +18,23 @@ const Search = styled("div")(({theme}) => ({
 }));
 
 const Icons = styled(Box)(({theme}) => ({
-    backgroundColor: "white",
+    display: "none",
+    alignItems: "center",
+    gap: "20px",
+    [theme.breakpoints.up("sm")]:{
+        display: "flex",
+
+    }
+}));
+
+const UserBox = styled(Box)(({theme}) => ({
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+    [theme.breakpoints.up("sm")]:{
+        display: "none",
+
+    }
 }));
 
 
@@ -28,9 +46,36 @@ function Navbar() {
             <Typography variant='h6' sx={{display:{xs:"none", sm:"block"}}}>Sprücheklopfer</Typography>
             <RecordVoiceOverIcon sx={{display:{xs:"block", sm:"none"}}}></RecordVoiceOverIcon>
             
-            <Search>suche den Spruch...</Search>
+            <Search><InputBase placeholder='suche einen Spruch...'/></Search>
 
-            <Icons>Hier kommen die Icons rein</Icons>
+            <Icons>
+
+            <Badge badgeContent={4} color="error">
+            <MailIcon />
+            </Badge>
+
+            <Badge badgeContent={4} color="error">
+            <NotificationsIcon />
+            </Badge>
+            <Avatar
+             
+             sx={{ width: 30, height: 30 }}
+             src="https://mui.com/static/images/avatar/1.jpg"
+             
+             />
+
+            
+            </Icons>
+            <UserBox>
+            
+            <Avatar
+             
+             sx={{ width: 30, height: 30 }}
+             src="https://mui.com/static/images/avatar/1.jpg"
+             
+             />
+            <Typography variant='span'>Username</Typography>
+            </UserBox>
         
         </StyledToolbar>
     </AppBar>
