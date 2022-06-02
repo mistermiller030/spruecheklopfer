@@ -1,13 +1,10 @@
-import React from 'react'
+import React from 'react';
+import "./index.css";
 
-function Footer() {
-  return (
-    <div>
-        
-        <h1>Ich bin der Footer</h1>
-        
-    </div>
-  )
-}
+const Footer = () => (
+  <footer className="footer">
+    <p>Spruecheklopfer GmbH</p>
+  </footer>
+);
 
 export default Footer
