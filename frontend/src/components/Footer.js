@@ -4,7 +4,7 @@ function Footer() {
   return (
     <div>
         
-        <h1>Ich bin der Footer</h1>
+        <h1>Ich bin der Footer von Vitalij</h1>
         
     </div>
   )
