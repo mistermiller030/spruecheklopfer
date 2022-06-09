@@ -40,6 +40,7 @@ function Feed() {
   
   const [posts, setPosts] = useState(postsArr);
   
+
   return (
     
     <Box flex={4} p={2}>
