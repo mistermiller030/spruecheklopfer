@@ -3,6 +3,7 @@ import { AppBar, Toolbar, styled, Typography, Box, InputBase, Badge, Avatar, Men
 import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import { Link } from 'react-router-dom';
 
 const StyledToolbar = styled(Toolbar)({
     display: "flex",
@@ -44,9 +45,12 @@ function Navbar() {
   return (
     <AppBar position='sticky'>
         <StyledToolbar>
+            
+            <Link to="/" style={{textDecoration:"none"}}>
             <Typography variant='h6' sx={{display:{xs:"none", sm:"block"}}}>Sprücheklopfer</Typography>
             <RecordVoiceOverIcon sx={{display:{xs:"block", sm:"none"}}}></RecordVoiceOverIcon>
-            
+            </Link>
+
             <Search><InputBase placeholder='suche einen Spruch...'/></Search>
 
             <Icons>

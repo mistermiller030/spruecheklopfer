@@ -1,6 +1,13 @@
 import { Box } from '@mui/material'
+import axios from 'axios';
 import React, { useState } from 'react'
+import { useEffect } from 'react';
 import Post from './Post'
+
+
+
+
+
 
 
 const postsArr = [
@@ -38,12 +45,45 @@ const postsArr = [
 
 function Feed() {
   
-  const [posts, setPosts] = useState(postsArr);
+  // Send a POST request
+
+
   
+  const loadFeed = async userId => {
+    var data = JSON.stringify({
+      "userId": "62a85846db1785321a340df5"
+    });
+    var config = {
+      method: 'get',
+      url: '/api/posts/test/62a85846db1785321a340df5',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
+    const response = await axios(config);
+    return response.data;
+  }
+
+
+  const [posts, setPosts] = useState(postsArr);
+
+  useEffect(()=> {
+     loadFeed("62a85846db1785321a340df5").then(res => {
+      console.log(res);
+     }).catch(err => {
+      console.log(err);
+     })
+    
+  },[])
 
   return (
     
+    
     <Box flex={4} p={2}>
+     
+
+
       {
       posts.map(e => 
         <Post 
@@ -56,7 +96,7 @@ function Feed() {
         isRated={e.isRated}
         />
       )
-    }
+    } 
     </Box>
   )
 }
